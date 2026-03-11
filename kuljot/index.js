@@ -14,3 +14,12 @@ Promise.resolve().then(() => console.log("3. Promise"))
 setTimeout(() => console.log("4.Timeout"),0)
 setImmediate(() => console.log("5.immediate"));
 console.log("6. End");
+
+fs = require("fs");
+function getData(err,data) {
+    console.log("data :",data)
+    console.log("err :",err)
+}
+
+fs.readdir('H:/Windows C/DESKTOP/Javascript learn/React learn/my-first-router/',getData);
+console.log("This is asyncronous calls");
