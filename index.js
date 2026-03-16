@@ -15,13 +15,29 @@
 // setImmediate(() => console.log('5. Immediate'));
 // console.log('6. End');
 
-fs = require('fs');
-function getData(err, data)
-{
-   console.log('data:', data)
-   console.log('err:', err)
-}
-//fs.readdir('/Users/adtyagupta/Documents/', getData);
-fs.readdir('/', getData);
-console.log("This is Asynchronous!!")
+// fs = require('fs');
+// function getData(err, data)
+// {
+//    console.log('data:', data)
+//    console.log('err:', err)
+// }
+// //fs.readdir('/Users/adtyagupta/Documents/', getData);
+// fs.readdir('/', getData);
+// console.log("This is Asynchronous!!")
 
+const EventEmitter = require('events');
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+// myEmitter.on('ParcelReceived', ()=>
+// {
+//    console.log("ParcelReceived event occurred!!");
+// });
+
+let eventCallback = ()=>
+{
+   console.log("ParcelReceived event occurred!!");
+} //Callback
+
+myEmitter.on('ParcelReceived', eventCallback);
+myEmitter.emit('ParcelReceived')
