@@ -44,17 +44,26 @@
 
 // myEmitter.emit('ParcelReceived')
 // myEmitter.emit('ParcelReceived')
+//===========Synchronous call
+// const fs = require('fs');
+// console.log('1. Starting sync read...');
+// try
+// {
+//    const data = fs.readFileSync('myfile.txt', 'utf8');
+//    console.log('2. File contents:', data);
+// }
+// catch(error)
+// {
+//    console.log("Error while reading the file: ", error)
+// }
 
+// console.log('3. Done reading file');
+//================Asynchronous call
 const fs = require('fs');
-console.log('1. Starting sync read...');
-try
+console.log('1. Starting async read...');
+fs.readFile('myfile.txt', 'utf8', (err, data) => 
 {
-   const data = fs.readFileSync('myfile1.txt', 'utf8');
-   console.log('2. File contents:', data);
-}
-catch(error)
-{
-   console.log("Error while reading the file: ", error)
-}
-
-console.log('3. Done reading file');
+  if (err) throw err;
+  console.log('2. File contents:', data);
+});
+console.log('3. Done starting read operation');
