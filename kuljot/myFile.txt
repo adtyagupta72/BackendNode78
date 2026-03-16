@@ -1,0 +1,3 @@
+Hello 
+
+my name is kuljot and my file name is myFile.txt and i am read the data
