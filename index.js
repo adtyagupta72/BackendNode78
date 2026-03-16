@@ -25,19 +25,36 @@
 // fs.readdir('/', getData);
 // console.log("This is Asynchronous!!")
 
-const EventEmitter = require('events');
-class MyEmitter extends EventEmitter {}
+// const EventEmitter = require('events');
+// class MyEmitter extends EventEmitter {}
 
-const myEmitter = new MyEmitter();
+// const myEmitter = new MyEmitter();
 // myEmitter.on('ParcelReceived', ()=>
 // {
 //    console.log("ParcelReceived event occurred!!");
 // });
 
-let eventCallback = ()=>
-{
-   console.log("ParcelReceived event occurred!!");
-} //Callback
+// let eventCallback = ()=>
+// {
+//    console.log("ParcelReceived event occurred!!");
+// } //Callback
+// myEmitter.emit('ParcelReceived')
 
-myEmitter.on('ParcelReceived', eventCallback);
-myEmitter.emit('ParcelReceived')
+// myEmitter.on('ParcelReceived', eventCallback);
+
+// myEmitter.emit('ParcelReceived')
+// myEmitter.emit('ParcelReceived')
+
+const fs = require('fs');
+console.log('1. Starting sync read...');
+try
+{
+   const data = fs.readFileSync('myfile1.txt', 'utf8');
+   console.log('2. File contents:', data);
+}
+catch(error)
+{
+   console.log("Error while reading the file: ", error)
+}
+
+console.log('3. Done reading file');

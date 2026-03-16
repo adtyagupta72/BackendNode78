@@ -1,0 +1,2 @@
+Hello
+This is from the file you are trying to read, my name is myFile.txt
