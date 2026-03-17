@@ -68,20 +68,27 @@
 // });
 // console.log('3. Done starting read operation');
 
-//CallBackHell
-getUser(userId, (err, user) => 
-  {
-    if (err) 
-      return handleError(err);
-    getOrders(user.id, (err, orders) => 
-      {
-        if (err) 
-          return handleError(err);
-        processOrders(orders, (err) => 
-          {
-            if (err) 
-              return handleError(err);
-            console.log('All done!');
-          });
-      });
-  });
+//CallBackHell Problem
+// getUser(userId, (err, user) => 
+//   {
+//     if (err) 
+//       return handleError(err);
+//     getOrders(user.id, (err, orders) => 
+//       {
+//         if (err) 
+//           return handleError(err);
+//         processOrders(orders, (err) => 
+//           {
+//             if (err) 
+//               return handleError(err);
+//             console.log('All done!');
+//           });
+//       });
+//   });
+
+//Callback hell solution: Promises
+getUser(userId)
+  .then(user => getOrders(user.id))
+  .then(orders => processOrders(orders))
+  .then(() => console.log('All done!'))
+  .catch(handleError)
