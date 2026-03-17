@@ -87,8 +87,23 @@
 //   });
 
 //Callback hell solution: Promises
-getUser(userId)
-  .then(user => getOrders(user.id))
-  .then(orders => processOrders(orders))
-  .then(() => console.log('All done!'))
-  .catch(handleError)
+// getUser(userId)
+//   .then(user => getOrders(user.id))
+//   .then(orders => processOrders(orders))
+//   .then(() => console.log('All done!'))
+//   .catch(handleError)
+
+async function processUser(userId) 
+{
+  try 
+  {
+    const user = await getUser(userId);
+    const orders = await getOrders(user.id);
+    await processOrders(orders);
+    console.log('All done!');
+  } 
+  catch (err) 
+  {
+    handleError(err);
+  }
+}
