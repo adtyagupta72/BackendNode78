@@ -72,6 +72,7 @@
 
 // asyncronous call 
 
+const { promises } = require("dns");
 const fs = require("fs")
 
 console.log("1.starting file read");
@@ -82,3 +83,42 @@ console.log("1.starting file read");
         console.log("2. File content data",data)
     });
 console.log("3.Done the reading data");
+
+
+
+// callback hell  problem 
+
+// getUser(userId,(err,data) => {
+//     if(err)
+//         return handleError(err);
+
+//     getOrders(user.id,(err,user) => {
+//         if(err) 
+//             return handleError(err);
+//         processOrders(orders,(err) => {
+//             if(err)
+//                 return handleError(err)
+//             console.log("All Done");
+//         })
+//     })
+
+
+// })
+
+// call back hell solution promises
+
+// getUser(userId)
+// .then(user => getOrders(user.id))
+// .then(() => console.log('All done'))
+// .catch(handleError)
+
+// async function processUser(userId) {
+//     try {
+//         const user = await getUser(userId)
+//         const order = await getOrders(user.id)
+//         await processOrder(orders)
+//         console.log("All done")
+//     } catch (error) {
+//         handleError(err);
+//     }
+// }
