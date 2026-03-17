@@ -59,11 +59,29 @@
 
 // console.log('3. Done reading file');
 //================Asynchronous call
-const fs = require('fs');
-console.log('1. Starting async read...');
-fs.readFile('myfile.txt', 'utf8', (err, data) => 
-{
-  if (err) throw err;
-  console.log('2. File contents:', data);
-});
-console.log('3. Done starting read operation');
+// const fs = require('fs');
+// console.log('1. Starting async read...');
+// fs.readFile('myfile.txt', 'utf8', (err, data) => 
+// {
+//   if (err) throw err;
+//   console.log('2. File contents:', data);
+// });
+// console.log('3. Done starting read operation');
+
+//CallBackHell
+getUser(userId, (err, user) => 
+  {
+    if (err) 
+      return handleError(err);
+    getOrders(user.id, (err, orders) => 
+      {
+        if (err) 
+          return handleError(err);
+        processOrders(orders, (err) => 
+          {
+            if (err) 
+              return handleError(err);
+            console.log('All done!');
+          });
+      });
+  });
