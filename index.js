@@ -93,17 +93,20 @@
 //   .then(() => console.log('All done!'))
 //   .catch(handleError)
 
-async function processUser(userId) 
-{
-  try 
-  {
-    const user = await getUser(userId);
-    const orders = await getOrders(user.id);
-    await processOrders(orders);
-    console.log('All done!');
-  } 
-  catch (err) 
-  {
-    handleError(err);
-  }
-}
+// async function processUser(userId) 
+// {
+//   try 
+//   {
+//     const user = await getUser(userId);
+//     const orders = await getOrders(user.id);
+//     await processOrders(orders);
+//     console.log('All done!');
+//   } 
+//   catch (err) 
+//   {
+//     handleError(err);
+//   }
+// }
+
+const myModule = require('./myModule')
+console.log("Output from myModule:", myModule.myText)
