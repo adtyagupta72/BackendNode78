@@ -1,0 +1,1 @@
+Hello Everyone, this is an example of reading the file and writing it to another one!
