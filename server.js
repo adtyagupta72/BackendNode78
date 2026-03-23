@@ -61,6 +61,10 @@ const server = http.createServer((request, response)=>
          readStream.pipe(response)
          break;
       }
+      case "/myName":
+      {
+         console.log("Hello!")
+      }
       default: 
       {
          response.writeHead(200, {'Content-Type':'text/html'});
@@ -73,3 +77,8 @@ const server = http.createServer((request, response)=>
 console.log("port 3000")
 server.listen(3000, '127.0.0.1');
 //   http://127.0.0.1:3000
+
+//00010110100011010
+
+//01000100 01100001 01110010 01110011 01101000
+//   D         A        R        S        H
