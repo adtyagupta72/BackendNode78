@@ -72,17 +72,17 @@
 
 // asyncronous call 
 
-const { promises } = require("dns");
-const fs = require("fs")
+// const { promises } = require("dns");
+// const fs = require("fs")
 
-console.log("1.starting file read");
+// console.log("1.starting file read");
 
-    fs.readFile('myFile.txt','utf-8',(err,data) => {
-        if(err)
-            throw err;
-        console.log("2. File content data",data)
-    });
-console.log("3.Done the reading data");
+//     fs.readFile('myFile.txt','utf-8',(err,data) => {
+//         if(err)
+//             throw err;
+//         console.log("2. File content data",data)
+//     });
+// console.log("3.Done the reading data");
 
 
 
@@ -122,3 +122,20 @@ console.log("3.Done the reading data");
 //         handleError(err);
 //     }
 // }
+
+
+const fs = require ('fs');
+
+const readStream = fs.createReadStream('read-me.txt','utf-8')
+const writeStream = fs.createWriteStream('write.txt')
+
+readStream.pipe(writeStream)
+
+
+const http = require('http');
+const server = http.createServer((request,response) => {
+    response.writeHead(200,{"content-type":'text/html'})
+    const readStream = fs.createReadStream('index.html','utf-8')
+    readStream.pipe(response)
+})
+server.listen(3000,'127.0.0.1')
