@@ -4,7 +4,7 @@ const twoMinuteTimer = () => {
 
     console.log("Timer start!")
     let startInterval = setInterval(() => {
-        console.log("Current Time", new Date().toLocaleTimeString());
+        // console.log("Current Time", new Date().toLocaleTimeString());
         remainingTime -= 1000
         let minutes = Math.floor(remainingTime / 60000)
         let seconds = Math.floor((remainingTime % 60000) / 1000);

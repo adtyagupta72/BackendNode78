@@ -124,18 +124,18 @@
 // }
 
 
-const fs = require ('fs');
+// const fs = require ('fs');
 
-const readStream = fs.createReadStream('read-me.txt','utf-8')
-const writeStream = fs.createWriteStream('write.txt')
+// const readStream = fs.createReadStream('read-me.txt','utf-8')
+// const writeStream = fs.createWriteStream('write.txt')
 
-readStream.pipe(writeStream)
+// readStream.pipe(writeStream)
 
 
-const http = require('http');
-const server = http.createServer((request,response) => {
-    response.writeHead(200,{"content-type":'text/html'})
-    const readStream = fs.createReadStream('index.html','utf-8')
-    readStream.pipe(response)
-})
-server.listen(3000,'127.0.0.1')
+// const http = require('http');
+// const server = http.createServer((request,response) => {
+//     response.writeHead(200,{"content-type":'text/html'})
+//     const readStream = fs.createReadStream('index.html','utf-8')
+//     readStream.pipe(response)
+// })
+// server.listen(3000,'127.0.0.1')
