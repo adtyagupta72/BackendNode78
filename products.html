@@ -9,6 +9,7 @@
     <script src='main.js'></script> -->
 
     <script>
+        let productList = []
         const API_URL = "http://127.0.0.1:5005/products"
         fetch(API_URL,{
             method: "GET",
@@ -24,6 +25,12 @@
             .then(data => 
             {
                 console.log("Data:", data)
+                console.log(typeof data)
+                productList = data
+                let list = document.getElementById("productListID")
+                productList.map(iterator => {
+                    list.innerHTML += "<li>"+iterator.productTitle+"</li>"
+                })
             })
             .catch(error => 
             {
@@ -33,12 +40,12 @@
 
 </head>
 <body>
-    <ol>
-        <li>Product 1</li>
+    <ol id="productListID">
+        <!-- <li>Product 1</li>
         <li>Product 2</li>
         <li>Product 3</li>
         <li>Product 4</li>
-        <li>Product 5</li>
+        <li>Product 5</li> -->
     </ol>
 </body>
 </html>

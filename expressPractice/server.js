@@ -65,6 +65,20 @@ let productList = [
       productDiscount: 120,
       productDiscountMode: "flat"//flat
    },
+   {
+      productID: 6,
+      productTitle: "Laptop",
+      productPrice: 1200,
+      productDiscount: 120,
+      productDiscountMode: "flat"//flat
+   },
+   {
+      productID: 7,
+      productTitle: "Smart Phone",
+      productPrice: 1200,
+      productDiscount: 120,
+      productDiscountMode: "flat"//flat
+   }
 ]
 
 function productsAPICallBack(request, response)
