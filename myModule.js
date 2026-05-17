@@ -1,0 +1,1 @@
+exports.myText = "I am coming from a Module!"
